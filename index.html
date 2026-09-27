@@ -56,45 +56,5 @@
 
 </body>
 </html>
-```
-
-Ruffle's own documentation uses this `createPlayer()` → `player.ruffle().load()` method. The Ruffle package also contains the required `ruffle.js` and WASM files.
-
-### ⚠️ Also delete EVERYTHING else
-
-Your current file literally has this after the closing `</html>`:
-
-```text
-```
-
-and then:
-
-```text
-### One important thing
-...
-```
-
-I can see that directly in your repository.
-
-Delete all of that.
-
-Your file should end exactly here:
-
-```html
-</body>
-</html>
-```
-
-### Then test it
-
-Don't test it through Google Sites yet.
-
-Open your **GitHub Pages URL directly**.
-
-If you get Ruffle's player there, **then** put that GitHub Pages URL into Google Sites using:
-
-**Insert → Embed → URL**
-
-Also, I verified that `pac-man.swf` really is present in your repo, so the filename itself isn't the issue.
 
 If it is **still black after this**, tell me what you see when you open the GitHub Pages URL directly — especially whether you see a Ruffle loading screen, an error message, or literally just pure black.
