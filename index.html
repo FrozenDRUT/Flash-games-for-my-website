@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flash Game</title>
 
-    <!-- Ruffle -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
     <style>
@@ -13,8 +14,13 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background: #000;
+            background: black;
             overflow: hidden;
+        }
+
+        #player {
+            width: 100%;
+            height: 100%;
         }
 
         ruffle-player {
@@ -26,11 +32,38 @@
 
 <body>
 
-    <ruffle-player
-        width="100%"
-        height="100%"
-        data="pac-man.swf">
-    </ruffle-player>
+<div id="player"></div>
+
+<script>
+    window.addEventListener("load", function () {
+
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+
+        player.style.width = "100%";
+        player.style.height = "100%";
+
+        document.getElementById("player").appendChild(player);
+
+        player.ruffle().load("pac-man.swf");
+
+    });
+</script>
 
 </body>
 </html>
+```
+
+### One important thing
+
+Your actual repo files are named exactly:
+
+`pac-man.swf`
+`bloons_tower_defense_1.swf`
+`bloons_tower_defense_2.swf`
+`breakingthebankng.swf`
+etc.
+
+So **`pac-man.swf` is correct** — no need to rename it.
+
+If this still gives you a black screen, open your GitHub Pages URL **directly in a new browser tab**, rather than through Google Sites. If it works there but not inside Google Sites, then we've got a Google Sites iframe issue rather than a Ruffle/SWF issue.
