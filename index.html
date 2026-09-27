@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Arcade Station</title>
+    <meta charset="UTF-8">
+    <title>Flash Game</title>
+
+    <!-- Ruffle -->
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
     <style>
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background: #000;
             overflow: hidden;
         }
-        #player-container {
+
+        ruffle-player {
             width: 100%;
             height: 100%;
         }
     </style>
 </head>
+
 <body>
 
-    <div id="player-container"></div>
-
-    <!-- Loads Ruffle safely inside GitHub's domain workspace -->
-    <script src="https://unpkg.com"></script>
-    <script>
-        window.RufflePlayer = window.RufflePlayer || {};
-        window.RufflePlayer.config = {
-            "letterbox": "on",
-            "autoplay": "on",
-            "unmuteOverlay": "hidden",
-            "scale": "showAll",
-            "forceScale": true
-        };
-
-        window.addEventListener("DOMContentLoaded", () => {
-            const ruffle = window.RufflePlayer.newest();
-            const player = ruffle.createPlayer();
-            const container = document.getElementById("player-container");
-            
-            container.appendChild(player);
-            // Points cleanly to your local SWF file without crossing domains
-            player.load("escapingtheprisonng.swf");
-        });
-    </script>
+    <ruffle-player
+        width="100%"
+        height="100%"
+        data="pac-man.swf">
+    </ruffle-player>
 
 </body>
 </html>
